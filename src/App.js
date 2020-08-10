@@ -33,7 +33,7 @@ call();
 },[]);*/
 
 
-
+console.log(sww);
 
   return (
     <div className={Styles.container}>
