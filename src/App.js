@@ -41,6 +41,11 @@ console.log(sww);
     <br />
     <text>
       <b className = {Styles.font}>COVID-19 TRACKER</b>
+      <br/>
+        <div style= {{textAlign: "center"}}>
+          <p style={{fontSize: "12px"}}>by</p>
+          <p style={{fontSize: "20px"}}>Danyal Amir</p>
+        </div>
     </text>
     <br />
     <br />
