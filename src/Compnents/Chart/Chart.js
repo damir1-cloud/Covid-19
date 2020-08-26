@@ -80,8 +80,8 @@ const lineChart = state.length ? (
 ) : null;
 
     return (
-        <div className={styles.container}>
-            {country ? barChart : lineChart}
+        <div className={styles.container} style = {{width: "1000px"}}>
+          {country ? barChart : lineChart} 
         </div>
     );
 }
