@@ -6,9 +6,9 @@ import CountrySelector from './Compnents/CountrySelector/CountrySelector';
 import {fetchData} from './API';
 
 function App() {
-const [sww, setsww] = useState({});
+const [country, setCountry] = useState(null);
 const [passdata, Setdata] = useState({});
-
+const [isFetched,setFetched]=useState(false);
 
 
 useEffect(()=>{
@@ -18,41 +18,44 @@ const call = async ()=> {
 
   Setdata(geta);
 }
-call();
-
-},[]);
-
-/*useEffect((country)=>{
-
-const call = async (country)=> {
-  const geta = await fetchData(country);
-
-  Setdata(geta, country);
+if(!isFetched){
+  call();
+  setFetched(true);
 }
-call();
-},[]);*/
+},[isFetched])
 
 
-console.log(sww);
+const Ccall = async (country)=> {
+  console.log(country);
+  let geta;
+  if(country==="global"){
+    geta = await fetchData();
+   setCountry('');
+  }
+  else{
+    geta = await fetchData(country);
+  }
+  Setdata(geta);
+  setCountry(country);
+}
 
+console.log(country);
   return (
     <div className={Styles.container}>
     
     <br />
-    <text>
       <b className = {Styles.font}>COVID-19 TRACKER</b>
       <br/>
         <div style= {{textAlign: "center"}}>
           <p style={{fontSize: "12px"}}>by</p>
           <p style={{fontSize: "20px"}}>Danyal Amir</p>
         </div>
-    </text>
     <br />
     <br />
     <br />
     <Cards data={passdata} />
-    <CountrySelector vcounter={setsww} />
-    <Chart data={passdata}/>
+    <CountrySelector vcounter={Ccall} />
+    <Chart data={passdata} country = {country}/>
   </div>
   );
 }

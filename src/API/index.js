@@ -3,10 +3,10 @@ let variableurl = url;
 
 
 
- export const fetchData = async (sww)=>{
+ export const fetchData = async (country)=>{
 
-    if (sww) {
-        variableurl = `${url}/countries/${sww}`;
+    if (country) {
+        variableurl = `${url}/countries/${country}`;
         
     }
     const response = await fetch (variableurl);
@@ -46,7 +46,7 @@ const mapedData = soon.map((item)=>({
 
 
 export const countrys = async ()=> {
-    const response = await fetch(`${variableurl}/countries`);
+    const response = await fetch(`${url}/countries`);
     const {countries} = await response.json();
     return countries.map((item)=>item.name); 
 }

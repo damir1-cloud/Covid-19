@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {fetchDailyData} from '../../API';
-import { Line } from "react-chartjs-2";//remember to import Bar when using bar chart
+import { Line, Bar } from "react-chartjs-2";//remember to import Bar when using bar chart
 import styles from "./chart.module.css";
 
- const Chart = ({data:{confirmed, deaths, recovered}})=> {
+ const Chart = ({data:{confirmed, deaths, recovered}, country})=> {
 
 const [state, setstate] = useState([]);
 
@@ -44,8 +44,7 @@ const lineChart = state.length ? (
     }}
   />
 ) : null;
-
-/*const barChart = confirmed ? (
+ const barChart = confirmed ? (
   <Bar
     data={{
       labels: ["Infected", "Recovered", "Deaths", "Active"],
@@ -75,14 +74,14 @@ const lineChart = state.length ? (
     }}
     options={{
       legend: { display: false },
-      title: { display: true, text: 'Current state in country' },
+      title: { display: true, text: `Current state in ${country}`},
     }}
   />
-) : null;*/
+) : null;
 
     return (
         <div className={styles.container}>
-            {lineChart}
+            {country ? barChart : lineChart}
         </div>
     );
 }
