@@ -4,7 +4,7 @@ import styles from './card.module.css';
 import CountUp from 'react-countup';
 import cx from "classnames";
 
- const Cards = ({data : {confirmed, recovered, deaths, lastUpdate }})=> {
+ const Cards = ({data : {confirmed, recovered, deaths, lastUpdate }, country})=> {
      //console.log();
         if(!confirmed){
             return (<div>Data is loading......</div>);
@@ -64,7 +64,7 @@ import cx from "classnames";
                 {new Date(lastUpdate).toLocaleTimeString()}
               </Typography>
               <Typography variant="body2">{detail.bottomText}</Typography>
-              <Typography color="textPrimary"> Country </Typography>
+              <Typography color="textPrimary"> {country? country : null} </Typography>
             </CardContent>
           </Grid>
         ))}

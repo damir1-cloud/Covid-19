@@ -53,7 +53,7 @@ console.log(country);
     <br />
     <br />
     <br />
-    <Cards data={passdata} />
+    <Cards data={passdata} country = {country} />
     <CountrySelector vcounter={Ccall} />
     <Chart data={passdata} country = {country}/>
   </div>
