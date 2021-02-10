@@ -56,6 +56,8 @@ console.log(country);
     <Cards data={passdata} country = {country} />
     <CountrySelector vcounter={Ccall} />
     <Chart data={passdata} country = {country}/>
+    <p>https://drive.google.com/drive/folders/1bxkA4SMsj6vbfkVBwTKqWxHoJvnUrzvf?usp=sharing</p>
+    
   </div>
   );
 }
